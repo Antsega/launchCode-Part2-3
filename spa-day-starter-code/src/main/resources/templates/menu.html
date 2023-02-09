@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title>Spa Menu</title>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>My Super Fancy Spa</h1>
+<div id = "clientProfile">
+    <h2>My Profile</h2>
+            <p th:text="${name}"></p>
+            <p th:text="${skintype}"></p>
+            <p th:text="${manipedi}"></p>
+</div>
+<div id = "servicesMenu">
+    <table>
+        <tr th:each="facial : ${facials}">
+            <td th:text="${facial}"></td>
+        </tr>
+    </table>
+    <div  th:if="${manipedi == 'manicure'}">
+        <h3>Manicure</h3>
+        <p th:replace="fragments :: manicureDescription"></p> <!--        looks into fragments file and grabs variable-->
+    </div>
+    <div  th:if="${manipedi == 'pedicure'}">
+        <h3>Pedicure</h3>
+        <p th:replace="fragments :: pedicureDescription"></p> <!--        looks into fragments file and grabs variable-->
+    </div>
+</div>
+</body>
+</html>
