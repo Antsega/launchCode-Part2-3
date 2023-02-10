@@ -1,5 +1,6 @@
 package com.example.Ch15Lecture.data;
 
+
 import java.util.ArrayList;
 import com.example.Ch15Lecture.models.Dinosaur;
 
@@ -10,5 +11,10 @@ public class DinoData {
 
     public static ArrayList<Dinosaur> getAllDinos() {
         return allDinos;
+    }
+
+    // adding dino to AL
+    public static void addDino(Dinosaur newDinObj) {
+        allDinos.add(newDinObj);
     }
 }

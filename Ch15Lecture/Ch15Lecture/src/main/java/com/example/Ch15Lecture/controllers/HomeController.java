@@ -13,4 +13,5 @@ public class HomeController {
     public String renderHome() {
         return "home";
     }
+
 }

@@ -8,6 +8,23 @@
     <h1>Add Dinosaurs</h1>
 
 <!--    Sends to dino/add-->
-    <form method="POST"></form>
+    <form method="POST">
+        <input type="text" name="species" />
+        <br>
+        Diet:
+        <select name="diet">
+            <option value="Herbivore">Herbivore</option>
+            <option value="Carnivore">Carnivore</option>
+            <option value="Omnivore">Omnivore</option>
+        </select>
+        <br>
+        Is the dino aquatic?
+        <select name="aquatic">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+        <br>
+        <button>Add Dino!🦖</button>
+    </form>
 </body>
 </html>
