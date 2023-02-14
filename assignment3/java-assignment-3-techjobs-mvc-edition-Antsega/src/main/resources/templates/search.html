@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <form th:action="@{/search/results}" method = "post">
+        <h2>Search by:</h2>
+
+        <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+
+        </p>
+
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+    <hr />
+
+    <!-- DO #4 - Loop over the search results to display all job fields. -->
+    <table th:each="eachJob : ${jobs}" class="job-listing">
+        <tbody>
+        <tr>
+            <th scope="row">ID</th>
+            <td th:text="${eachJob.getId()}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Name</th>
+            <td th:text="${eachJob.name}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Employer</th>
+            <td th:text="${eachJob.employer}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Location</th>
+            <td th:text="${eachJob.location}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Position Type</th>
+            <td th:text="${eachJob.getPositionType()}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Skill</th>
+            <td th:text="${eachJob.getCoreCompetency()}"></td>
+        </tr>
+        <!--        If skills section selected, include skills row-->
+        <tr th:if="${skillsRow}">
+            <th scope="row" th:text="${selector}"></th>
+            <td th:text="${value}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
