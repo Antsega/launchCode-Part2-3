@@ -1,0 +1,17 @@
+-- Part 1: Test it with SQL
+--      id INT,
+--      employer VARCHAR(255),
+--      name VARCHAR(255),
+--      skills VARCHAR(255)
+-- Part 2: Test it with SQL
+--      SELECT id, name, location
+--      FROM techjobs.employer
+--      WHERE location = "St.Louis City"
+-- Part 3: Test it with SQL
+--      DROP TABLE job, job_skills;
+-- Part 4: Test it with SQL
+--  SELECT S.name, S.description, J.name as Job_name
+--  FROM techjobs.skill as S
+--  INNER JOIN techjobs.job_skills as JS on JS.skills_id = S.id
+--  INNER JOIN job as J on JS.jobs_id = J.id
+--  ORDER BY S.name ASC;
